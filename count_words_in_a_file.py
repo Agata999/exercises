@@ -1,16 +1,20 @@
 import os
 
 
-def counting_words(path):
-    with open(path, 'r', encoding='utf-16') as f:
+file = '/home/agata/Documents/test.txt'
+
+text = open(file, 'r')
+print(text.read(6))
+
+
+def counting_words(file):
+    with open(file, 'r') as f:
         content = f.read()
         word_count = len(content.split())
     return word_count
 
 
-path = r'c:\temp\test.txt'
+if os.path.isfile(file):
+    print(f'There are {counting_words(file)} words in the file {file}')
 
-if os.path.isfile(path):
-    print(f'There are {counting_words(path)} words in the file {path}')
-
-os.path.isfile(path) and print(f'There are {counting_words(path)} words in the file {path}')
+os.path.isfile(file) and print(f'There are {counting_words(file)} words in the file {file}')
